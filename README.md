@@ -77,6 +77,11 @@ Build the Linux x64 release and install to **/opt/jacktor/chatgpt** with a deskt
 npm run install-linux
 ```
 
+Optional:
+```bash
+npm run install-linux --lang=id
+```
+
 This will:
 
 - Build the Linux x64 release
