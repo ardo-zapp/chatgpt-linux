@@ -144,8 +144,9 @@ locales/
   id.json
 
 scripts/locales/
-  en.json
-  id.json
+  en.sh
+  id.sh
+  desktop.sh
 ```
 
 > The app picks the language via `--lang=…`. If not provided, it falls back to the default language.
