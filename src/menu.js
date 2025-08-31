@@ -33,7 +33,7 @@ async function showAbout(win, t) {
   const product = pkg.productName || pkg.name || "App";
   const version = pkg.version ? `v${pkg.version}` : "";
   const author = typeof pkg.author === "string" ? pkg.author : (pkg.author?.name || "");
-  const repo = pkg.repository && (typeof pkg.repository === "string" ? pkg.repository : pkg.repository.url || "");
+  const repo = pkg.repository && (typeof pkg.repository === "string" ? pkg.repository : (pkg.repository?.url || ""));
   const icon = getIconImage();
 
   const lines = [];
@@ -47,7 +47,7 @@ async function showAbout(win, t) {
   await dialog.showMessageBox(win, {
     type: "info",
     title: `${product} ${version}`.trim(),
-    message: product,
+    message: "", // <-- kosongkan agar judul tidak muncul di konten
     detail: lines.join("\n"),
     icon,
     buttons: [t("ok") || "OK"],
@@ -62,11 +62,12 @@ async function showLicense(win, t) {
   await dialog.showMessageBox(win, {
     type: txt ? "info" : "warning",
     title: t("license") || "License",
-    message: t("license") || "License",
+    message: "", // <-- kosongkan agar judul tidak muncul di konten
     detail: txt || (t("licenseNotFound") || "LICENSE file not found."),
     icon,
     buttons: [t("ok") || "OK"],
     noLink: true,
+    normalizeAccessKeys: true,
   });
 }
 
@@ -171,7 +172,7 @@ function contextTemplateFromParams(t, params) {
 
   items.push({ role: "selectAll", label: t("selectAll") || "Select All" });
 
-  // Inspect Element
+  // Inspect Element (pakai Ctrl + klik kanan untuk memunculkan)
   if (params && params.x != null && params.y != null && params.modifiers?.includes("ctrl")) {
     items.push({ type: "separator" });
     items.push({
