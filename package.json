@@ -1,0 +1,19 @@
+{
+  "name": "chatgpt-app",
+  "productName": "ChatGPT",
+  "version": "1.0.0",
+  "description": "ChatGPT is a chatbot that uses GPT-5 to generate responses to your messages. It is a desktop application built with Electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node start.js",
+    "build-linux": "chmod +x scripts/build.sh && bash scripts/build.sh",
+    "install-linux": "chmod +x scripts/install.sh && bash scripts/install.sh"
+  },
+  "repository": "https://github.com/ardo-zapp/chatgpt-linux/",
+  "author": "Ardo Zapp",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^37.3.1",
+    "electron-packager": "^17.1.2"
+  }
+}
